@@ -17,6 +17,9 @@ Develop a modern data warehouse using SQL Server to consolidate sales and orders
 - **Scope**: Focus on the latest dataset only; historization of data is not required.
 - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 
+#### Naming Conventions
+Specific naming conventions have been followed in order to standardize file and table names. More details are provided [here](docs/naming_conventions.md).
+
 ---
 
 ## 🛡️ License & Acknowledgments
