@@ -13,7 +13,7 @@ This document outlines the naming conventions used for schemas, tables, views, c
    - [Surrogate Keys](#surrogate-keys)
    - [Technical Columns](#technical-columns)
 4. [Stored Procedure](#stored-procedure-naming-conventions)
-4. [DDLs](#Data-Definition-Language-(DDL))
+5. [Data Definition Language (DDL)](#data-definition-language-ddl)
 ---
 
 ## **General Principles**
@@ -78,7 +78,9 @@ This document outlines the naming conventions used for schemas, tables, views, c
     - `load_bronze` → Stored procedure for loading data into the Bronze layer.
     - `load_silver` → Stored procedure for loading data into the Silver layer.
 
-## **Data Definition Language (DDL)**: These are the SQL scripts for creating tables in the Bronze, Silver or Gold schemas/layers
+## **Data Definition Language (DDL)** 
+
+These are the SQL scripts for creating tables in the Bronze, Silver or Gold schemas/layers
 
 - All stored procedures used for loading data must follow the naming pattern:
 - **`ddl_<layer>`**.
