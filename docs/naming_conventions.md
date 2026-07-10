@@ -25,16 +25,16 @@ This document outlines the naming conventions used for schemas, tables, views, c
 ## **Table Naming Conventions**
 
 ### **Bronze Rules**
-- All table names must match their original names, while removing "dataset" as part of their name.
+- All table names must match their original names, while removing "olist" and "dataset" as part of their name.
 - **`entity_datset`**  
   - `<entity>`: Exact table name from the Olist datasets.  
-  - Example: `olist_customers_dataset` → `olist_customers`, Customer information from the Olist datasets.
+  - Example: `olist_customers_dataset` → `customers`, Customer information from the Olist datasets.
 
 ### **Silver Rules**
 - All table names must match their original names, while removing "dataset" as part of their name.
 - **`entity_datset`**  
   - `<entity>`: Exact table name from the Olist datasets.  
-  - Example: `olist_customers_dataset` → `olist_customers`, Customer information from the Olist datasets.
+  - Example: `olist_customers_dataset` → `customers`, Customer information from the Olist datasets.
 
 ### **Gold Rules**
 - All names must use meaningful, business-aligned names for tables, starting with the category prefix.
