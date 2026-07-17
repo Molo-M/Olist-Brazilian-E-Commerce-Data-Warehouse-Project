@@ -3,6 +3,20 @@ Let's goo! This is a data engineering project that demonstrates a comprehensive 
 
 ---
 
+## Table of Contents
+
+1. [Project Requirements](#project-requirements)
+2. [Data Architecture](#data-architecture)
+3. [Bronze Layer](#bronze-layer)
+4. [Silver Layer](#silver-layer)
+5. [Gold Layer](#gold-layer)
+6. [Repository Structure](#repository-structure)
+7. [Clone the Repository](#clone-the-repository)
+8. [License & Acknowledgments](#license--acknowledgments)
+9. [About Me](#about-me)
+
+---
+
 ## Project Requirements
 
 ### Building the Data Warehouse (Data Engineering)
@@ -27,33 +41,99 @@ Specific naming conventions have been followed in order to standardize file and 
 The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 ![Data Architecture](docs/Data_Architecture.png)
 
-## 1. **Bronze Layer**
+## **Bronze Layer**
 
-Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database. You can veiw the SQL scripts [here](/scripts/bronze).
+The Bronze layer stores raw data exactly as received from the source files.
 
-Since this is the bronze layer, the CSV datasets were loaded directly into the Bronze layer:
+No transformations are performed during ingestion.
+
+The data is loaded directly from CSV files into SQL Server using the `BULK INSERT` command through the `bronze.load_bronze` stored procedure.
+
+Bronze scripts can be found in
+
+```
+scripts/bronze
+```
+
+Data flow
+
 ![Data Flow Diagram](docs/Data_Flow_Diagram.png)
 
-## 2. **Silver Layer** 
+## **Silver Layer** 
 
-This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis. You can veiw the SQL scripts [here](/scripts/silver).
+The Silver layer focuses on data cleansing, standardization, and normalization.
 
-As part of the data cleaning process a redundant column was dropped, some column names were corrected, and some values with NULLs were addressed. Data quality checks were also carried out [here](/tests/data_quality_check_silver.sql) to make sure that the tables in the Silver layer were okay.
+Key transformations include
+
+* Removing redundant customer identifiers
+* Correcting incorrect column names
+* Replacing NULL values with meaningful defaults
+* Standardizing payment types
+* Aggregating duplicate geolocation records
+* Deduplicating customer records
+* Creating one record per unique customer
+
+Comprehensive validation queries were also created to verify
+
+* Duplicate keys
+* Missing values
+* Invalid dates
+* Data consistency
+
+Silver scripts
+
+```
+scripts/silver
+```
+
+Quality checks
+
+```
+tests/data_quality_check_silver.sql
+```
+
+Data integration model
 
 ![Data Integration Model](docs/Data_Integration_Model.png)
 
 
-## 3. **Gold Layer**
+## **Gold Layer**
 
-Houses business-ready data modeled into a galaxy schema required for reporting and analytics.
+The Gold layer contains business ready analytical models following a Galaxy Schema.
 
- The tables in the Silver layer were finally transformed into analysis-ready dimension and fact tables. Data quality checks were also carried out [here](/tests/data_quality_check_gold.sql) to make sure that the tables in the Gold layer were okay.
+The warehouse consists of three dimension tables
+
+* Customers
+* Products
+* Sellers
+
+and three fact tables
+
+* Sales Items
+* Order Payments
+* Order Reviews
+
+These views are optimized for analytical reporting while preserving referential integrity across the warehouse.
+
+Gold scripts
+
+```
+scripts/gold
+```
+
+Quality checks
+
+```
+tests/data_quality_check_gold.sql
+```
+
+Galaxy Schema
 
 ![Data Model](docs/Data_Model.png)
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```
 Olist-Brazilian-E-Commerce-Data-Warehouse-Project/
 │
@@ -76,6 +156,13 @@ Olist-Brazilian-E-Commerce-Data-Warehouse-Project/
 ├── README.md                           # Project overview and instructions
 ├── LICENSE                             # License information for the repository
 ```
+
+## Clone the repository
+
+```bash
+git clone https://github.com/Molo-M/Olist-Brazilian-E-Commerce-Data-Warehouse-Project.git
+```
+
 ---
 
 ## License & Acknowledgments
