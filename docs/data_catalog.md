@@ -29,13 +29,13 @@ The Gold Layer is the business-level data representation, structured to support 
 | product_id         | NVARCHAR(50)           | Key uniquely identifying each product record in the products dimension table.         |
 | product_category_name          | NVARCHAR(50)           | Root category name of product, in Portuguese.            |
 | product_category_name_english      | NVARCHAR(50)  | Translation of category name of product, in English.  |
-| product_name_length        | INT  | number of characters extracted from the product name.|
-| product_description_length         | INT  | number of characters extracted from the product description.|
-| product_photos_qty            | INT)  | number of product published photos.|
-| product_weight_g         | INT  | product weight measured in grams.|
-| product_length_cm| INT  | product length measured in centimeters.|
-| product_height_cm                | INT          | product height measured in centimeters.|
-| product_width_cm        | INT  | product width measured in centimeters.|
+| product_name_length        | INT  | Number of characters extracted from the product name.|
+| product_description_length         | INT  | Number of characters extracted from the product description.|
+| product_photos_qty            | INT)  | Number of product published photos.|
+| product_weight_g         | INT  | Product weight measured in grams.|
+| product_length_cm| INT  | Product length measured in centimeters.|
+| product_height_cm                | INT          | Product height measured in centimeters.|
+| product_width_cm        | INT  | Product width measured in centimeters.|
 
 ---
 
@@ -47,9 +47,9 @@ The Gold Layer is the business-level data representation, structured to support 
 | Column Name         | Data Type     | Description                                                                                   |
 |---------------------|---------------|-----------------------------------------------------------------------------------------------|
 | seller_id         | NVARCHAR(50)           | Key uniquely identifying each seller record in the sellers dimension table.         |
-| seller_zip_code_prefix          | NVARCHAR(50)           | first 5 digits of seller zip code            |
-| seller_city      | NVARCHAR(50)  | seller city name.|
-| seller_state        | NVARCHAR(50)  | seller state.|
+| seller_zip_code_prefix          | NVARCHAR(50)           | First 5 digits of seller zip code            |
+| seller_city      | NVARCHAR(50)  | Seller city name.|
+| seller_state        | NVARCHAR(50)  | Seller state.|
 | geolocation_lat         | INT  | Latitude|
 | geolocation_lng            | INT  | Longitude|
 
@@ -64,12 +64,12 @@ The Gold Layer is the business-level data representation, structured to support 
 |-----------------|---------------|-----------------------------------------------------------------------------------------------|
 | sales_item_id    | INT  | A surogate alphanumeric identifier for each sales item.                      |
 | order_id    | NVARCHAR(50)  | Key uniquely identifying each order record. Note: One order can have multiple items                    |
-| order_item_id     | NVARCHAR(50)           | sequential number identifying number of items included in the same order.|
-| customer_unique_id     | NVARCHAR(50)           | key linking the order to the customer dimension table.                               |
-| product_id     | NVARCHAR(50)           | key linking the order to the product dimension table.                               |
-| seller_id    | NVARCHAR(50)           | key linking the order to the seller dimension table.                              |
-| price      | FLOAT          | item price                                                        |
-| freight_value   | FLOAT          | item freight value item (if an order has more than one item the freight value is splitted between items)       |
+| order_item_id     | NVARCHAR(50)           | Sequential number identifying number of items included in the same order.|
+| customer_unique_id     | NVARCHAR(50)           | Key linking the order to the customer dimension table.                               |
+| product_id     | NVARCHAR(50)           | Key linking the order to the product dimension table.                               |
+| seller_id    | NVARCHAR(50)           | Key linking the order to the seller dimension table.                              |
+| price      | FLOAT          | Item price                                                        |
+| freight_value   | FLOAT          | Item freight value item (if an order has more than one item the freight value is splitted between items)       |
 | order_status        | NVARCHAR(50)          | Reference to the order status (delivered, shipped, etc).                                                      |
 | order_purchase_timestamp    | DATETIME           | Shows the purchase timestamp.   |
 | order_approved_at        | DATETIME           | Shows the payment approval timestamp.|
@@ -89,12 +89,12 @@ The Gold Layer is the business-level data representation, structured to support 
 | Column Name     | Data Type     | Description                                                                                   |
 |-----------------|---------------|-----------------------------------------------------------------------------------------------|
 | order_payment_id    | INT  | A surogate alphanumeric identifier for each order payment                    |
-| payment_sequential     | INT           | a customer may pay an order with more than one payment method. If he does so, a sequence will be created for every payment   |
-| customer_unique_id     | NVARCHAR(50)           | key linking the order to the customer dimension table.                               |
+| payment_sequential     | INT           | A customer may pay an order with more than one payment method. If he does so, a sequence will be created for every payment   |
+| customer_unique_id     | NVARCHAR(50)           | Key linking the order to the customer dimension table.                               |
 | order_status        | NVARCHAR(50)          | Reference to the order status (delivered, shipped, etc).                                                      |
-| payment_type    | NVARCHAR(50           | method of payment chosen by the customer.                        |
-| payment_installments      | INT          | number of installments chosen by the customer.                                                         |
-| payment_value   | FLOAT          | transaction value.         |
+| payment_type    | NVARCHAR(50           | Method of payment chosen by the customer.                        |
+| payment_installments      | INT          | Number of installments chosen by the customer.                                                         |
+| payment_value   | FLOAT          | Transaction value.         |
 | order_purchase_timestamp    | DATETIME           | Shows the purchase timestamp.   |
 
 ---
@@ -108,7 +108,7 @@ The Gold Layer is the business-level data representation, structured to support 
 |-----------------|---------------|-----------------------------------------------------------------------------------------------|
 | order_review_id    | INT  | A surogate alphanumeric identifier for each order review                    |
 | review_id     | NVARCHAR(50)           | Key identifying each review.|
-| customer_unique_id     | NVARCHAR(50)           | key linking the order to the customer dimension table.                               |
+| customer_unique_id     | NVARCHAR(50)           | Key linking the order to the customer dimension table.                               |
 | order_status        | NVARCHAR(50)          | Reference to the order status (delivered, shipped, etc).                                                      |
 | order_purchase_timestamp    | DATETIME           | Shows the purchase timestamp.   |
 | review_score     | INT           | Note ranging from 1 to 5 given by the customer on a satisfaction survey.   |
