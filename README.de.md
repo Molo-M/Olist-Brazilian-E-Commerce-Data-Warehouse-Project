@@ -167,6 +167,8 @@ Olist-Brazilian-E-Commerce-Data-Warehouse-Project/
 ├── tests/                              # Testskripte und Qualitätsprüfungen
 │
 ├── README.md                           # Projektübersicht und Dokumentation
+├── README.de.md                        # Deutsch Übersetzung
+├── README.sv.md                        # Schwedisch Übersetzung
 ├── LICENSE                             # Lizenzinformationen
 ```
 
