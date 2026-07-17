@@ -139,8 +139,8 @@ BEGIN
 			  review_id,
 			  order_id,
 			  review_score,
-			  review_comment_title,
-			  review_comment_message,
+			  COALESCE(review_comment_title, 'n/a'),    -- Transform NULLs into 'n/a'
+			  COALESCE(review_comment_message, 'n/a'),  -- Transform NULLs into 'n/a'
 			  review_creation_date,
 			  review_answer_timestamp
 		  FROM bronze.order_reviews
