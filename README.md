@@ -127,6 +127,12 @@ Quality checks
 tests/data_quality_check_gold.sql
 ```
 
+Data Catalog
+
+```
+docs/data_catalog.md
+```
+
 Galaxy Schema
 
 ![Data Model](docs/Data_Model.png)
