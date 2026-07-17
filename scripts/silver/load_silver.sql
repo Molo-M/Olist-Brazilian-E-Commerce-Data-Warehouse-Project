@@ -180,7 +180,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		PRINT '6) Truncating Table: silver.geolocation'
 		TRUNCATE TABLE silver.geolocation;
-
+		
 		PRINT 'Inserting Data Into: silver.geolocation'
 		INSERT INTO silver.geolocation(
 			geolocation_zip_code_prefix,
@@ -191,11 +191,15 @@ BEGIN
 		)
 		SELECT
 			geolocation_zip_code_prefix,
-			geolocation_lat,
-			geolocation_lng,
-			geolocation_city,
-			geolocation_state
+			-- Calculate the geographical center (centroid) of the zip codes
+			AVG(geolocation_lat) AS geolocation_lat,
+			AVG(geolocation_lng) AS geolocation_lng,
+			-- 2. Pick a single, consistent city name (e.g., lowercase or uppercase)
+			LOWER(MAX(geolocation_city)) AS geolocation_city,
+			UPPER(MAX(geolocation_state)) AS geolocation_state
 		FROM bronze.geolocation
+		GROUP BY 
+			geolocation_zip_code_prefix
 		SET @end_time = GETDATE();
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
 		PRINT '-------------------';
