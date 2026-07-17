@@ -31,7 +31,7 @@ The Gold Layer is the business-level data representation, structured to support 
 | product_category_name_english      | NVARCHAR(50)  | Translation of category name of product, in English.  |
 | product_name_length        | INT  | Number of characters extracted from the product name.|
 | product_description_length         | INT  | Number of characters extracted from the product description.|
-| product_photos_qty            | INT)  | Number of product published photos.|
+| product_photos_qty            | INT  | Number of product published photos.|
 | product_weight_g         | INT  | Product weight measured in grams.|
 | product_length_cm| INT  | Product length measured in centimeters.|
 | product_height_cm                | INT          | Product height measured in centimeters.|
