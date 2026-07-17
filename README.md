@@ -1,3 +1,5 @@
+### 🌐 [English](README.md) | [Deutsch](README.de.md) | [Svenska](README.sv.md)
+
 # Olist Brazilian E-Commerce Data Warehouse Project
 Let's goo! This is a data engineering project that demonstrates a comprehensive data warehousing solution, involving the building of a data warehouse that will help data analysts with finding actionable insights in data. The data used for this project comes from the Brazilian E-Commerce store, "Olist".
 
